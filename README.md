@@ -7,7 +7,7 @@
 ## 📲 Download & Install
 
 ### ⬇️ Latest APK
-👉 **[Download SpotScout APK]([YOUR_APK_LINK_HERE](https://expo.dev/accounts/anubhavpadiyar1/projects/spotscout/builds/6ae947e9-283f-4717-b99d-37f9df815568))**
+👉 **[Download SpotScout APK](https://expo.dev/accounts/anubhavpadiyar1/projects/spotscout/builds/6ae947e9-283f-4717-b99d-37f9df815568)**
 
 **How to install:**
 1. Open the link on your Android phone
