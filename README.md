@@ -1,187 +1,120 @@
-# ☂ UMBRELLA
-### Multi-Hazard Early Warning & Response Dashboard
-**Uttarakhand Disaster Intelligence System**
+# 📍 SpotScout — Campus Library Booking App
+
+> Smart seat booking system for **Graphic Era Hill University (GEHU)** libraries. Book a seat, scan QR at entrance, check out when done — all from your phone!
 
 ---
 
-## 🌐 Live Links
+## 📲 Download & Install
 
-| | URL |
-|---|---|
-| **🖥 Live Dashboard** | [umbrella-dashboard.netlify.app](https://umbrella-dashboard.netlify.app) |
-| **🗺 Risk Map** | [umbrella-dashboard.netlify.app/map.html](https://umbrella-dashboard.netlify.app/map.html) |
-| **🏘 Vulnerability Scorer** | [umbrella-dashboard.netlify.app/vulnerability.html](https://umbrella-dashboard.netlify.app/vulnerability.html) |
-| **⚡ Resource Recommender** | [umbrella-dashboard.netlify.app/resources.html](https://umbrella-dashboard.netlify.app/resources.html) |
-| **⚙ Admin Panel** | [umbrella-dashboard.netlify.app/admin.html](https://umbrella-dashboard.netlify.app/admin.html) |
-| **🔌 Backend API** | [web-production-517aa.up.railway.app](https://web-production-517aa.up.railway.app) |
-| **📡 Rainfall API** | [web-production-517aa.up.railway.app/rainfall](https://web-production-517aa.up.railway.app/rainfall) |
-| **📊 Villages API** | [web-production-517aa.up.railway.app/villages](https://web-production-517aa.up.railway.app/villages) |
+### ⬇️ Latest APK
+👉 **[Download SpotScout APK](YOUR_APK_LINK_HERE)**
 
----
+> Replace `YOUR_APK_LINK_HERE` with your Expo build link
 
-## Dashboard Preview
-
-### Main Dashboard
-<img src="assets/dashboard-overview.png" width="900">
-
-### Risk Map
-<img src="assets/risk-map.png" width="900">
-
-### Vulnerability Scorer
-<img src="assets/vulnerability-table.png" width="900">
-
-### Resource Recommender
-<img src="assets/resource-panel.png" width="900">
+**How to install:**
+1. Open the link on your Android phone
+2. Tap **Download APK**
+3. Go to Settings → Allow unknown apps
+4. Install the downloaded file
+5. Open SpotScout! 🎉
 
 ---
 
-## The Problem
+## 📱 Features
 
-In June 2013, over 6,000 people died in the Kedarnath disaster. In February 2021, a glacial lake outburst in Chamoli's Tapovan killed 200 more. Both events shared a critical failure — **ground-level intelligence arrived too late.**
-
-Weather alerts exist. What doesn't exist is a tool that tells a District Magistrate at 11pm: *which villages are at risk right now, which roads are still open, how many minutes until the flood front arrives, and exactly which NDRF teams to deploy where.*
-
-Umbrella fills that gap.
-
----
-
-## What Umbrella Does
-
-A four-screen disaster intelligence platform built for district-level emergency response in the Indian Himalayan Region.
-
-### Live Hazard Risk Map
-- 8 real glacial lake markers with GLOF travel times to nearest villages
-- Live flood risk zones for 6 districts — updated on every page load
-- Real 48hr cumulative rainfall from Open-Meteo API
-- IMD threshold classification: ≥115mm HIGH · 65–115mm MEDIUM · <65mm LOW
-
-### Village Vulnerability Scorer
-- 15 real Uttarakhand villages scored using a weighted formula
-- Scores driven by **live rainfall data** — not hardcoded values
-- Five factors: Population · GLOF Travel Time · Live Rainfall · Road Safety · Historical Event
-- Filter by risk level, threat type, district
-
-### Resource Recommender
-- NDRF, SDRF, helicopter and hospital status tracking
-- District-level action checklists with P1/P2/P3 priority
-- WhatsApp alert generator in English and Hindi
-- One-click PDF situation report export
-
-### Admin Panel
-- Add or remove villages directly from browser
-- Data saved to SQLite database — no code changes needed
+| Feature | Description |
+|---------|-------------|
+| 🏠 Home | See all libraries + available seats instantly |
+| 📷 QR Scanner | Scan library entrance QR to check in / check out |
+| ⏳ 6-min Reserve | Book a seat → 6 min window to scan QR at entrance |
+| 📋 My Spots | View all your booking history |
+| 🗺️ Campus Map | See all libraries on GEHU campus map |
+| ⚙️ Admin Panel | PIN-protected panel for librarians |
+| 👤 Profile | Your student details (Name, ERP, Dept, Year) |
 
 ---
 
-## Architecture
+## 🔄 How Booking Works
 
 ```
-Browser (HTML · CSS · JavaScript)
-         ↕  JSON over HTTP
-Flask API Server — Railway
-         ↕                    ↕
-SQLite Database          Open-Meteo API
-(village data)           (live rainfall)
+1. Open app → tap "Book Seat" on any library card
+2. Seat reserved for 6 minutes ⏳
+3. Go to library → scan QR code at entrance
+4. Seat confirmed ✅ — valid for 4 hours
+5. Scan same QR at exit to release seat 🚪
+6. (If you forget — seat auto-releases after 4 hours)
 ```
 
-**Frontend:** HTML5 · CSS3 · JavaScript · Leaflet.js — hosted on Netlify  
-**Backend:** Python · Flask · Flask-CORS — hosted on Railway  
-**Database:** SQLite  
-**Data Sources:** Open-Meteo API (rainfall) · ISRO/ICIMOD coordinates (glacial lakes)
+---
+
+## 🏛️ Libraries Available
+
+| Library | Location |
+|---------|----------|
+| Central Library | Graphic Era Hill University |
+| Law Library | GEHU Law Block |
+| Santoshanad Library | Santoshanad Block |
+| CSIT Block Library | CSIT Department |
+| Chanakya Block Library | Chanakya Block |
 
 ---
 
-## Hazard Coverage
+## 🔐 Admin PINs (For Librarians Only)
 
-| Module | Status | Data Source |
-|--------|--------|-------------|
-| GLOF (Glacial Lake Outburst) | ✅ Live | ISRO NRSC coordinates |
-| Monsoon Flooding | ✅ Live | Open-Meteo API |
-| Avalanche | 🔄 Planned | SRTM DEM + IMD snowpack |
-| Cyclone | 🔄 Planned | INCOIS storm surge data |
-
----
-
-## Districts Monitored
-
-Uttarkashi · Chamoli · Rudraprayag · Tehri Garhwal · Pithoragarh · Haridwar
+| Library | PIN |
+|---------|-----|
+| Central Library | 1111 |
+| Law Library | 2222 |
+| Santoshanad Library | 3333 |
+| CSIT Block Library | 4444 |
+| Chanakya Block Library | 5555 |
+| Master Admin (all libraries) | 1234 |
 
 ---
 
-## Running Locally
+## 📷 Library QR Codes (For Admins)
 
-### Prerequisites
-- Python 3.8+
-- pip
+Print these QR codes and place at library entrance. Encode these values:
 
-### Setup
+| Library | QR Value |
+|---------|----------|
+| Central Library | `gehu-central` |
+| Law Library | `gehu-law` |
+| Santoshanad Library | `santoshanad` |
+| CSIT Block Library | `csit-block` |
+| Chanakya Block Library | `chanakya` |
 
+Generate QR codes at 👉 [qr.io](https://qr.io)
+
+---
+
+## 🛠️ For Developers
+
+### Tech Stack
+- **React Native** (Expo ~50)
+- **AsyncStorage** — local data storage
+- **React Navigation** — bottom tabs + stack
+- **expo-barcode-scanner** — QR scanning
+- **react-native-maps** — campus map
+- **react-native-qrcode-svg** — QR generation
+- **expo-linear-gradient** — UI gradients
+
+### Run locally
 ```bash
-# Clone the repository
-git clone https://github.com/AnubhavPadiyar/umbrella.git
-cd umbrella
-
-# Install dependencies
-pip install flask flask-cors certifi
-
-# Set up the database
-python3 setup_db.py
-
-# Start the backend server
-python3 server.py
+git clone https://github.com/AnubhavPadiyar/spotscout-android.git
+cd spotscout-android
+npm install
+npx expo start
 ```
 
-Server runs at `http://localhost:5001`
-
-Open `index.html` in your browser.
-
----
-
-## Vulnerability Scoring Formula
-
-Each village is scored 0–100 across five weighted factors:
-
-| Factor | Weight | Scoring |
-|--------|--------|---------|
-| Population | 25% | >10k=25pts · >5k=20pts · >1k=15pts |
-| GLOF Travel Time | 20% | <20min=20pts · <40=15pts · <60=10pts |
-| Live Rainfall Risk | 20% | HIGH=20pts · MEDIUM=12pts · LOW=4pts |
-| Road Safety | 20% | Blocked=20pts · Safe=0pts |
-| Historical Event | 15% | Yes=15pts · No=0pts |
-
-**Risk Classification:** ≥70 = HIGH · 45–69 = MEDIUM · <45 = LOW
+### Build APK
+```bash
+eas build -p android --profile preview
+```
 
 ---
 
-## Roadmap
+## 👨‍💻 Developer
 
-- [ ] Real Census village coordinates (Datameet/Bhuvan)
-- [ ] ISRO glacial lake inventory integration
-- [ ] CWC river gauge data for flood forecasting
-- [ ] Avalanche risk module (DEM + snowpack)
-- [ ] SMS alert gateway
-- [ ] Mobile responsive design
-- [ ] Himachal Pradesh and Sikkim expansion
-
----
-
-## Why This Matters
-
-The Himalayan region faces an accelerating disaster risk driven by:
-- Glacial melt expanding lake volumes (GLOF frequency up 3x since 2000)
-- Intensifying monsoon rainfall patterns
-- Rapid infrastructure development in high-risk zones
-- Growing pilgrimage and tourism populations in vulnerable valleys
-
-Existing tools give weather data. Umbrella gives **ground intelligence** — connecting weather signals to village-level vulnerability, road conditions, and response resources.
-
----
-
-## Built By
-
-**Anubhav Padiyar** — Sophomore,Computer Science and Engineering
-
-GitHub: [github.com/AnubhavPadiyar](https://github.com/AnubhavPadiyar)
-
----
-
+Made by **Anubhav Padiyar**
+GEHU Campus · 2026
